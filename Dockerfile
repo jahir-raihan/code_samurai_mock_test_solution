@@ -16,7 +16,7 @@ RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
 # Expose port 5000 for the Django development server
-EXPOSE 5000
+EXPOSE 8000
 
 # Run database migrations and start the Django development server
-CMD ["bash", "-c", "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:5000"]
+CMD ["bash", "-c", "python manage.py makemigrations && python manage.py migrate && python manage.py flush --no-input && python manage.py runserver 0.0.0.0:8000"]
